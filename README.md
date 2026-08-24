@@ -14,8 +14,7 @@ BUILD    preflight ─► K3s ─► Helm ─► MinIO (S3 communal storage)
 DEMOS    smoke · bulk · dbd · depot · revive · restore · resilience · scale · wipe · create
 ```
 ---
-<img width="960" height="471" alt="image" src="https://github.com/user-attachments/assets/c357fb60-ebcd-4959-a14e-ac864e0f55e2" />
-
+![Social preview](social-preview.svg)
 ---
 
 Ten built-in demonstrations drive the running lab through realistic scenarios —
