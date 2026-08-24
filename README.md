@@ -3,8 +3,8 @@
 A reusable, idempotent bootstrap script that turns a clean **Rocky Linux 9 Minimal
 (aarch64)** VM into a working **single-node Vertica Eon Mode cluster on Kubernetes**.
 
-Built for **Apple Silicon Macs** running the VM under **UTM**. Everything —
-K3s, MinIO, the VerticaDB operator, the database itself — lives inside the VM.
+Built for **Apple Silicon Macs** running the VM under **UTM**. Everything -
+K3s, MinIO, the VerticaDB operator, the database itself - lives inside the VM.
 Nothing is installed on the Mac.
 
 ```
@@ -17,7 +17,7 @@ DEMOS    smoke · bulk · dbd · depot · revive · restore · resilience · sca
 ![Social preview](social-preview.svg)
 ---
 
-Ten built-in demonstrations drive the running lab through realistic scenarios —
+Ten built-in demonstrations drive the running lab through realistic scenarios -
 loading a star schema, running the Database Designer, watching a cold read come
 back from S3, destroying the database and reviving it from communal storage,
 rolling back to a restore point, killing the pod, scaling a subcluster in and out.
@@ -64,7 +64,7 @@ options that work off the VM.
 
 Vertica in Eon Mode separates compute from storage: the database keeps its data in
 S3-compatible **communal storage** and caches it locally in a **depot**. This repo
-automates the smallest useful version of that architecture — one Vertica node, one
+automates the smallest useful version of that architecture - one Vertica node, one
 shard, one in-cluster MinIO bucket — so you can exercise Eon Mode end to end on a
 laptop-class ARM64 VM.
 
@@ -261,7 +261,7 @@ Every value has a lab-sensible default. To change anything:
 
 ```bash
 cp .env.example .env
-vi .env          # .env is git-ignored — it holds passwords
+vi .env          # .env is git-ignored - it holds passwords
 ```
 
 ### 4.3 Run
@@ -294,9 +294,9 @@ mutually exclusive; passing both is an error.
 | `--dry-run` | — | Operational preview: change nothing, but still run the read-only preflight checks and still write the fully rendered manifests to `.rendered/`. Also narrates. Cannot be combined with `--demo`. See §4.5. | Re-run the same command without it to apply for real |
 | `--skip-preflight` | — | Turn preflight failures into warnings and continue anyway. | Leave it out and a failed check stops the run |
 | `--yes`, `-y` | — | Assume "yes" for destructive demo confirmations. Required to run `wipe`, `create`, `revive`, `restore` or `scale` unattended. | Leave it out and every destructive demo asks first |
-| `--env-file` | `PATH` | Config file to source. Default `./.env`. | — |
-| `--list-demos` | — | Print the demo catalogue with descriptions, rough durations and the reverse of each demo, then exit. | — |
-| `-h`, `--help` | — | Show usage and exit. | — |
+| `--env-file` | `PATH` | Config file to source. Default `./.env`. | - |
+| `--list-demos` | — | Print the demo catalogue with descriptions, rough durations and the reverse of each demo, then exit. | - |
+| `-h`, `--help` | — | Show usage and exit. | - |
 
 Each run also prints the opposite of what it just did, as a `reverse:` line
 under the final result — after the build, after an uninstall, after `--only`,
@@ -419,7 +419,7 @@ likely to touch:
 **Secrets handling.** If `MINIO_SECRET_KEY` or `VERTICA_PASSWORD` are left blank the
 script generates them on the first run and stores them **only** in Kubernetes
 Secrets. On every subsequent run it reads the existing Secrets back rather than
-regenerating — otherwise a re-run would invalidate the credentials the database was
+regenerating - otherwise a re-run would invalidate the credentials the database was
 created against. Nothing is ever written to the repo.
 
 ### 4.7 Resource budget
