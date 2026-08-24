@@ -1,0 +1,49 @@
+# Vertica Eon-on-K8s Lab — Manual Prep (done before automation)
+
+## 1. UTM VM creation (Apple Silicon Mac)
+- UTM: New VM -> Virtualize (QEMU backend; NOT "Apple Virtualization")
+- OS: Rocky Linux 9 Minimal, aarch64 ISO
+- Resources: ~8 vCPU, 16 GB RAM, 100 GB disk
+- Network: Shared Network (default)
+
+## 2. Rocky installation (Anaconda)
+- Partitioning: /boot = standard partition (not LVM), ~1 GiB
+  /boot/efi = EFI System Partition, >= 300 MiB
+  / = LVM, swap = default
+  (or just use Automatic partitioning)
+- Software: Minimal Install
+- Root password: set
+- User Creation: user "admin", checked "Make this user administrator"
+- Begin Installation -> reboot
+- After install: shut down VM, EJECT the ISO in UTM (else it boots installer again), start VM
+
+## 3. Get VM IP (in VM console)
+ip -4 addr show        # note the IP, e.g. 10.162.83.9
+
+## 4. SSH key access (on Mac; reused existing key utm_vertica_demo)
+ssh-copy-id -i ~/.ssh/utm_vertica_demo.pub admin@<VM-IP>
+
+## 5. SSH alias (on Mac, append to ~/.ssh/config)
+Host vlab
+    HostName <VM-IP>
+    User admin
+    IdentityFile ~/.ssh/utm_vertica_demo
+
+## 6. Passwordless sudo (inside VM: ssh vlab)
+echo "admin ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/admin
+sudo chmod 440 /etc/sudoers.d/admin
+exit
+
+## 7. Verify (on Mac) — must complete with zero prompts
+ssh vlab "sudo whoami"     # prints: root
+
+# Notes
+- If VM IP changes after reboot: update only HostName in ~/.ssh/config
+- Optional snapshot (VM shut down):
+  qemu-img snapshot -c clean-base <path-to-VM>.utm/Data/*.qcow2
+-----
+Here is an example connecting to the VM name vlab
+User admin
+with no password:
+ssh vlab "sudo whoami"
+root
