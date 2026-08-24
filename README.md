@@ -13,6 +13,10 @@ BUILD    preflight ─► K3s ─► Helm ─► MinIO (S3 communal storage)
 
 DEMOS    smoke · bulk · dbd · depot · revive · restore · resilience · scale · wipe · create
 ```
+---
+<img width="960" height="471" alt="image" src="https://github.com/user-attachments/assets/c357fb60-ebcd-4959-a14e-ac864e0f55e2" />
+
+---
 
 Ten built-in demonstrations drive the running lab through realistic scenarios —
 loading a star schema, running the Database Designer, watching a cold read come
@@ -22,7 +26,7 @@ rolling back to a restore point, killing the pod, scaling a subcluster in and ou
 > [!IMPORTANT]
 > **Unofficial lab tool, provided as is, with no warranty and no liability.**
 > Not affiliated with, endorsed by or supported by Rocket Software or Vertica
-> Support. It creates *and destroys* databases by design — run it only on a
+> Support. It creates *and destroys* databases by design - run it only on a
 > disposable lab VM. Vertica® is a trademark of Rocket Software, Inc., and a
 > valid Vertica licence from Rocket Software is required to run Vertica.
 > Please read [§9 Disclaimer](#9-disclaimer-trademarks-and-licensing) before use.
@@ -865,10 +869,6 @@ environment it produces. A lab built by this script is not a supported
 configuration. Please do not raise support cases with them about this
 repository.
 
-Problems with *this script* belong in this repository's issue tracker. Problems
-with *Vertica itself* belong with your own Vertica support entitlement, which is
-a separate arrangement you must hold in your own right.
-
 ### 9.3 Trademarks
 
 **Vertica® is a trademark of Rocket Software, Inc.** Rocket® and Rocket
@@ -890,11 +890,4 @@ or affiliation.
   yourself.
 - **Nothing here grants you any right to use Vertica.** Your use of Vertica is
   governed solely by the licence agreement between you and Rocket Software.
-- **This applies to Community Edition too.** CE needs no licence *file*, but its
-  use is still governed by the vendor's licence terms, and its limits — 1 TB and
-  3 nodes — are licence terms, not conventions of this lab.
-- **From v26.1 a real licence file is mandatory** (see [§3.2](#32-licensing-changed-at-v261--community-edition-is-gone)).
-  Obtaining a licence, and complying with its terms, is **your responsibility**.
 
-Nothing in this repository is legal advice. If licensing or compliance matters
-in your situation, take it up with Rocket Software or your own legal counsel.
